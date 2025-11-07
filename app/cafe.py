@@ -10,8 +10,9 @@ class Cafe:
 
     def visit_cafe(self, visitor: dict) -> str:
         if "vaccine" not in visitor:
-            raise (NotVaccinatedError
-                   (f"{visitor.get("name", "Unknown")} is not vaccinated"))
+            raise NotVaccinatedError(
+                f"{visitor.get('name', 'Unknown')} is not vaccinated"
+            )
 
         vaccine_info = visitor["vaccine"]
 
@@ -23,7 +24,8 @@ class Cafe:
             )
 
         if not visitor.get("wearing_a_mask", False):
-            raise (NotWearingMaskError
-                   (f"{visitor.get("name", "Unknown")} is not wearing a mask"))
+            raise NotWearingMaskError(
+                f"{visitor.get('name', 'Unknown')} is not wearing a mask"
+            )
 
         return f"Welcome to {self.name}"
